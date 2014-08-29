@@ -16,7 +16,9 @@ CONFIG   += c++11
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    listaSimple.cpp
 
 HEADERS += \
-    Nodo.h
+    Nodo.h \
+    listaSimple.h
