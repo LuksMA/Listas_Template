@@ -3,6 +3,7 @@
 #include <string>
 #include "Nodo.h"
 #include "listaSimple.h"
+#include "listadobleenlazada.h"
 
 using namespace std;
 
@@ -13,6 +14,7 @@ int main(int argc, char *argv[])
     f = "dos";
     b = "mundo";
     c = "hola";
+    cout << "12324245435" << endl;
     /*
     Node<string> *p = new Node<string>(f);
     p->next = new Node<string>(b);
@@ -34,14 +36,14 @@ int main(int argc, char *argv[])
     cout << "eliminar cabeza" << endl;
     cout << "---------------" << endl;
 
-    lista.deleteFromHead();
+    cout << "eliminado: " <<  lista.deleteFromHead() <<endl;
     lista.setHoja();
     cout << "---------------" << endl;
     cout << "eliminar cola" << endl;
     cout << "---------------" << endl;
 
-    lista.deleteFromTail();
-    lista.deleteFromTail();
+
+    cout << "eliminado: " << lista.deleteFromTail() << endl;
     lista.setHoja();
 
     cout << "---------------" << endl;

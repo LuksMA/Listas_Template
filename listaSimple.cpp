@@ -1,5 +1,6 @@
 #include <iostream>
 #include "listaSimple.h"
+using namespace std;
 
 template <typename Type>
 ListaSimple<Type>::~ListaSimple(){    // elimina el contenido de la lista
@@ -55,15 +56,18 @@ Type ListaSimple<Type>::deleteFromTail()
     {
         delete head;
         head = tail = 0;
+
     }else
     {
+
         Node<Type> *tmp;
-        for(tmp = head; tmp->next = head; tmp = tmp->next);
+        for(tmp = head; tmp->next != tail; tmp = tmp->next);
         delete tail;
         tail = tmp;
-        tail->next = 0;
+        tail->next = nullptr;
 
     }
+   // this->setHoja();
     return in;
 }
 
@@ -113,6 +117,7 @@ void ListaSimple<Type>::setHoja() const
      {
          std::cout << tmp->info << '\n' ;
      };
+   //  std::cout << tmp->info << std::endl;
 
 
 }
