@@ -26,6 +26,30 @@ int main(int argc, char *argv[])
     lista.addToHead(f);
     lista.addToTail(b);
     lista.addToTail(c);
+    lista.addToHead("soy la cabeza");
+    lista.addToTail("soy la cola");
+    lista.setHoja();
+
+    cout << "---------------" << endl;
+    cout << "eliminar cabeza" << endl;
+    cout << "---------------" << endl;
+
+    lista.deleteFromHead();
+    lista.setHoja();
+    cout << "---------------" << endl;
+    cout << "eliminar cola" << endl;
+    cout << "---------------" << endl;
+
+    lista.deleteFromTail();
+    lista.deleteFromTail();
+    lista.setHoja();
+
+    cout << "---------------" << endl;
+    cout << "eliminar nodo" << endl;
+    cout << "---------------" << endl;
+    lista.deleteNode(c);
+
+
     lista.setHoja();
 
 

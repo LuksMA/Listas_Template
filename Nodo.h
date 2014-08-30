@@ -12,7 +12,6 @@ public:
         info = i;
         next = in;
     }
-
 };
 
 
