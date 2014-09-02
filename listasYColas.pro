@@ -18,10 +18,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     listaSimple.cpp \
-    listadobleenlazada.cpp
+    listadobleenlazada.cpp \
+    listacircular.cpp
 
 HEADERS += \
     Nodo.h \
     listaSimple.h \
     listaDobleEnlazada.h \
-    listadobleenlazada.h
+    listadobleenlazada.h \
+    listacircular.h
+

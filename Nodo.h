@@ -14,5 +14,22 @@ public:
     }
 };
 
+template <class Type>
+class NodeDE{
+public:
+    NodeDE *prev;
+    NodeDE *next;
+    Type info;
+
+    NodeDE(){
+        next = prev = 0;
+    }
+    NodeDE(Type i, NodeDE * in = 0, NodeDE * inn = 0){
+        info = i;
+        next = in;
+        prev = inn;
+    }
+};
+
 
 #endif // NODO_H
