@@ -1,22 +1,25 @@
-#ifndef LISTADOBLEENLAZADA_H
-#define LISTADOBLEENLAZADA_H
+#ifndef LISTAED_H
+#define LISTAED_H
 #include <iostream>
 #include <string>
 #include "Nodo.h"
 using namespace std;
 
-template <typename T>
-class listaDobleEnlazada
+template <class T>
+class ListaED
 {
+
 private:
     NodeDE<T> *head, *tail;
+    int index;
+
 public:
-    listaDobleEnlazada(){head = tail = 0;}
-    void AddToLDETail(const T&);
+    ListaED(){head = tail = 0;}
+    void AddToLDETail(T);
     T DeleteFromLDETail();
     void setHoja() const;
     string hola(){return "hola";}
     friend class ExpresionPostFijas;
 };
 
-#endif // LISTADOBLEENLAZADA_H
+#endif // LISTAED_H

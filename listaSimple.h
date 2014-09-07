@@ -25,6 +25,7 @@ public:
     bool isInList(Type) const;
 
     void setHoja() const;
+    friend class ExpresionPostFijas;
 };
 
 #include "listaSimple.cpp"

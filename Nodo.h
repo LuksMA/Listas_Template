@@ -24,10 +24,10 @@ public:
     NodeDE(){
         next = prev = 0;
     }
-    NodeDE(Type i, NodeDE * in = 0, NodeDE * inn = 0){
-        info = i;
-        next = in;
-        prev = inn;
+    NodeDE(const Type& el, NodeDE *n = 0, NodeDE *p = 0){
+        info = el;
+        next = n;
+        prev = p;
     }
 };
 

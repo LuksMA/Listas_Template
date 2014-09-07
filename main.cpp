@@ -2,8 +2,10 @@
 #include <iostream>
 #include <string>
 #include "Nodo.h"
-#include "listaSimple.h"
-#include "listadobleenlazada.h"
+//#include "listaSimple.h"
+#include "listaed.h"
+#include "listaed.cpp"
+#include "expresionpostfijas.h"
 #include <zlib.h>
 
 using namespace std;
@@ -25,13 +27,13 @@ int main(int argc, char *argv[])
     cout << p->next->info << endl;
     cout << p->next->next->info << endl;*/
 
-    ListaSimple <int>lista;
+    /*ListaSimple <int>lista;
     lista.addToHead(f);
     lista.addToTail(b);
     lista.addToTail(c);
     lista.addToHead(10);
-    lista.addToTail(100);
-
+    lista.addToTail(100);*/
+/*
     cout << "agregando 10 y 100" << endl;
     lista.setHoja();
 
@@ -56,6 +58,18 @@ int main(int argc, char *argv[])
 
 
     lista.setHoja();
+*/
+    string exp("(25+73)*(4/78)"), newcade;
+    ExpresionPostFijas expre(exp);
+    cout << exp << endl;
+    //expre.operadores.setHoja();
+    expre.operacion.setHoja();
+
+
+
+
+
+
 
 
 
