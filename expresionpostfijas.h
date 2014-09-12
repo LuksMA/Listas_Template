@@ -17,13 +17,14 @@ private:
 public:
     ListaED <char>operadores;
     ListaED  <string>operacion;
+    ListaED  <int>numeros;
 
     ExpresionPostFijas(string cadena)
     {
         alfabeto = "*+-/()";
         for(unsigned int i = 0; i < (uint8_t)cadena.size(); i++)
         {
-            if(this->isInAlf(cadena[i]))
+            if(this->isInAlf<char>(cadena[i]))
             {
                 if(cadena[i] == ')'){
 
@@ -40,7 +41,7 @@ public:
                 ss << c;
                 ss >> s;
 
-                    if(!this->isInAlf(cadena[i-1])){
+                    if(!this->isInAlf<char>(cadena[i-1])){
                             a = this->operacion.tail->info;
                             s = a + s;
                             operacion.DeleteFromLDETail();
@@ -55,7 +56,68 @@ public:
 
     }
 
-    bool isInAlf(char a){
+    int evaluar(){
+
+        NodeDE<string> *tmp;
+
+        int i = 0;
+
+        for(tmp = operacion.head; tmp != 0; tmp = tmp->next)
+        {
+            bool a = (tmp->info == "*");
+            bool b = (tmp->info == "/");
+            bool c = (tmp->info == "-");
+            bool d = (tmp->info == "+");
+            int var;
+
+            if(a){
+                var = numeros.tail->prev->info * numeros.tail->info  ;
+               // cout << "var: " << var << endl;
+                numeros.DeleteFromLDETail();
+                numeros.DeleteFromLDETail();
+                numeros.AddToLDETail(var);}
+
+
+            else if(b){
+                var = numeros.tail->prev->info / numeros.tail->info ;
+               // cout << "var: " << var << endl;
+                numeros.DeleteFromLDETail();
+                numeros.DeleteFromLDETail();
+                numeros.AddToLDETail(var);
+            }
+
+            else if(c){
+                var = numeros.tail->prev->info - numeros.tail->info ;
+                numeros.DeleteFromLDETail();
+                numeros.DeleteFromLDETail();
+                numeros.AddToLDETail(var);
+            }
+
+            else if(d){
+                var = numeros.tail->prev->info + numeros.tail->info ;
+               // cout << "var: " << var << endl;
+                numeros.DeleteFromLDETail();
+                numeros.DeleteFromLDETail();
+                numeros.AddToLDETail(var);
+            }
+            else{
+               int b;
+               b = atoi( tmp->info.c_str() );
+             //  cout << "b: "<< b << endl;
+               numeros.AddToLDETail(b);
+
+            }
+
+
+
+        };
+
+
+
+    }
+
+    template <typename Type>
+    bool isInAlf(Type a){
         for(unsigned int i = 0; i < (uint8_t)alfabeto.size(); i++ )
         {
                 if(alfabeto.at(i)== a)return true;
@@ -68,7 +130,7 @@ public:
     {
         string newCadena;
         int i = 0;
-        while(!this->isInAlf(subcadena[i]))
+        while(!this->isInAlf<char>(subcadena[i]))
         {
             newCadena += subcadena[i];
             i++;

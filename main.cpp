@@ -59,11 +59,16 @@ int main(int argc, char *argv[])
 
     lista.setHoja();
 */
-    string exp("(25+73)*(4/78)"), newcade;
+    string exp("(5+3)*(4-8)"), newcade;
     ExpresionPostFijas expre(exp);
     cout << exp << endl;
     //expre.operadores.setHoja();
     expre.operacion.setHoja();
+    cout << endl;
+    expre.evaluar();
+    expre.numeros.setHoja();
+
+
 
 
 
