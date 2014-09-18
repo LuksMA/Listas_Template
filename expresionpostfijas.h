@@ -30,7 +30,6 @@ public:
 
                     this->desapilarCP();
                 }
-                else if(this->isParentesisOn()){operadores.AddToLDETail(cadena[i]);}
                 else {operadores.AddToLDETail(cadena[i]);}
 
             }else
@@ -48,14 +47,15 @@ public:
                     }
 
                  operacion.AddToLDETail(s);
+                 //operacion.setHoja();
             }
         }
-        this->desapilar();
-        cout << operacion.index << endl;
+        if(operadores.head != 0){this->desapilar();}
+
+       // cout << operacion.index << endl;
 
 
     }
-
     int evaluar(){
 
         NodeDE<string> *tmp;
@@ -71,34 +71,57 @@ public:
             int var;
 
             if(a){
-                var = numeros.tail->prev->info * numeros.tail->info  ;
-               // cout << "var: " << var << endl;
-                numeros.DeleteFromLDETail();
-                numeros.DeleteFromLDETail();
-                numeros.AddToLDETail(var);}
-
-
+                if(numeros.tail->prev == 0){
+                    var = numeros.tail->info;
+                    numeros.DeleteFromLDETail();
+                    numeros.AddToLDETail(var);
+                }else{
+                    var = numeros.tail->prev->info * numeros.tail->info ;
+                   // cout << "var: " << var << endl;
+                    numeros.DeleteFromLDETail();
+                    numeros.DeleteFromLDETail();
+                    numeros.AddToLDETail(var);
+                }
+            }
             else if(b){
-                var = numeros.tail->prev->info / numeros.tail->info ;
-               // cout << "var: " << var << endl;
-                numeros.DeleteFromLDETail();
-                numeros.DeleteFromLDETail();
-                numeros.AddToLDETail(var);
-            }
+                if(numeros.tail->prev == 0){
+                    var = numeros.tail->info;
+                    numeros.DeleteFromLDETail();
+                    numeros.AddToLDETail(var);
+                }else{
+                    if(numeros.tail->prev->info == 0 || numeros.tail->info == 0){var = 0; }else{var = numeros.tail->prev->info + numeros.tail->info ;}
 
+                   // cout << "var: " << var << endl;
+                    numeros.DeleteFromLDETail();
+                    numeros.DeleteFromLDETail();
+                    numeros.AddToLDETail(var);
+                }
+            }
             else if(c){
-                var = numeros.tail->prev->info - numeros.tail->info ;
-                numeros.DeleteFromLDETail();
-                numeros.DeleteFromLDETail();
-                numeros.AddToLDETail(var);
+                if(numeros.tail->prev == 0){
+                    var = numeros.tail->info * -1;
+                    numeros.DeleteFromLDETail();
+                    numeros.AddToLDETail(var);
+                }else{
+                    var = numeros.tail->prev->info - numeros.tail->info ;
+                   // cout << "var: " << var << endl;
+                    numeros.DeleteFromLDETail();
+                    numeros.DeleteFromLDETail();
+                    numeros.AddToLDETail(var);
+                }
             }
-
             else if(d){
-                var = numeros.tail->prev->info + numeros.tail->info ;
-               // cout << "var: " << var << endl;
-                numeros.DeleteFromLDETail();
-                numeros.DeleteFromLDETail();
-                numeros.AddToLDETail(var);
+                if(numeros.tail->prev == 0){
+                    var = numeros.tail->info;
+                    numeros.DeleteFromLDETail();
+                    numeros.AddToLDETail(var);
+                }else{
+                    var = numeros.tail->prev->info + numeros.tail->info ;
+                   // cout << "var: " << var << endl;
+                    numeros.DeleteFromLDETail();
+                    numeros.DeleteFromLDETail();
+                    numeros.AddToLDETail(var);
+                }
             }
             else{
                int b;
@@ -107,9 +130,6 @@ public:
                numeros.AddToLDETail(b);
 
             }
-
-
-
         };
 
 

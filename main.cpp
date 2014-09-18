@@ -58,25 +58,30 @@ int main(int argc, char *argv[])
 
 
     lista.setHoja();
+
 */
-    string exp("(5+3)*(4-8)"), newcade;
+    bool salir = true;
+
+    while(salir)
+    {
+
+    string g;
+    cout << "ingresar expresion: " << endl;
+    cin >> g;
+    string exp(g), newcade;
     ExpresionPostFijas expre(exp);
     cout << exp << endl;
     //expre.operadores.setHoja();
     expre.operacion.setHoja();
     cout << endl;
     expre.evaluar();
+
     expre.numeros.setHoja();
 
+    cout << "salir? 0 = si, 1 = no"<< endl;
+    cin >> salir;
 
-
-
-
-
-
-
-
-
+    }
 
 
     return a.exec();
